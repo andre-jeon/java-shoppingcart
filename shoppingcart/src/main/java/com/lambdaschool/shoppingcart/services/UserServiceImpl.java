@@ -62,7 +62,6 @@ public class UserServiceImpl implements UserService
 
             throw new ResourceNotFoundException("User name " + name + " not found!");
         }
-
         return uu;
     }
 
