@@ -13,8 +13,7 @@ import java.util.List;
 
 @Transactional
 @Service(value = "userService")
-public class UserServiceImpl
-        implements UserService
+public class UserServiceImpl implements UserService
 {
     /**
      * Connects this service to the users repository
@@ -24,6 +23,9 @@ public class UserServiceImpl
 
     @Autowired
     private CartService cartService;
+
+    @Autowired
+    private RoleService roleService;
 
     @Override
     public List<User> findAll()
@@ -40,10 +42,28 @@ public class UserServiceImpl
     }
 
     @Override
-    public User findUserById(long id)
+    public User findUserById(long id) throws ResourceNotFoundException
     {
         return userrepos.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("User id " + id + " not found!"));
+    }
+
+    @Override
+    public List<User> findByNameContaining(String username) {
+        return userrepos.findByUsernameContainingIgnoreCase(username.toLowerCase());
+    }
+
+    @Override
+    public User findByName(String name) {
+
+        User uu = userrepos.findByUsername(name.toLowerCase());
+
+        if (uu == null) {
+
+            throw new ResourceNotFoundException("User name " + name + " not found!");
+        }
+
+        return uu;
     }
 
     @Transactional

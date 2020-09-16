@@ -100,9 +100,9 @@ public class User
         return password;
     }
 
-    public void setPassword() {
+    public void setPassword(String password) {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        this.password = passwordEncoder.encode(password);
+        this.password = passwordEncoder.encode(this.password);
     }
 
     public List<SimpleGrantedAuthority> getAuthority() {

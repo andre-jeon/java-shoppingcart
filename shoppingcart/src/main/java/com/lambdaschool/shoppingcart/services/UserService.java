@@ -9,12 +9,15 @@ import java.util.List;
  */
 public interface UserService
 {
+
     /**
      * Returns a list of all the Users
      *
      * @return List of Users. If no users, empty list.
      */
     List<User> findAll();
+
+    List<User> findByNameContaining(String username);
 
     /**
      * Returns the user with the given primary key.
@@ -23,6 +26,8 @@ public interface UserService
      * @return The given User or throws an exception if not found.
      */
     User findUserById(long id);
+
+    User findByName(String name);
 
     /**
      * Deletes the user record from the database based off of the provided primary key
