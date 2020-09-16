@@ -96,6 +96,14 @@ public class User
         this.carts = carts;
     }
 
+    public Set<UserRoles> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<UserRoles> roles) {
+        this.roles = roles;
+    }
+
     public String getPassword() {
         return password;
     }
@@ -103,6 +111,10 @@ public class User
     public void setPassword(String password) {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         this.password = passwordEncoder.encode(this.password);
+    }
+
+    public void setNoEncodePassword(String password) {
+        this.password = password;
     }
 
     public List<SimpleGrantedAuthority> getAuthority() {
