@@ -21,5 +21,4 @@ public class ShoppingcartApplication
         SpringApplication.run(ShoppingcartApplication.class,
                               args);
     }
-
 }

@@ -9,6 +9,7 @@ import java.util.List;
  */
 public interface UserService
 {
+
     /**
      * Returns a list of all the Users
      *
@@ -23,6 +24,7 @@ public interface UserService
      * @return The given User or throws an exception if not found.
      */
     User findUserById(long id);
+
 
     /**
      * Deletes the user record from the database based off of the provided primary key
@@ -40,4 +42,6 @@ public interface UserService
      * @return the saved user object including any automatically generated fields
      */
     User save(User user);
+
+    User findByName(String name);
 }
