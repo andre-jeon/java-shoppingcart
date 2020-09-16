@@ -17,8 +17,6 @@ public interface UserService
      */
     List<User> findAll();
 
-    List<User> findByNameContaining(String username);
-
     /**
      * Returns the user with the given primary key.
      *
@@ -27,7 +25,6 @@ public interface UserService
      */
     User findUserById(long id);
 
-    User findByName(String name);
 
     /**
      * Deletes the user record from the database based off of the provided primary key
@@ -45,4 +42,6 @@ public interface UserService
      * @return the saved user object including any automatically generated fields
      */
     User save(User user);
+
+    User findByName(String name);
 }

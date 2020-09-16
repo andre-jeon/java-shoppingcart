@@ -17,7 +17,7 @@ public class SecurityUserServiceImpl implements UserDetailsService {
     @Transactional
     @Override
     public UserDetails loadUserByUsername(String s) throws ResourceNotFoundException {
-        User user = userrepos.findByUsername(s);
+        User user = userrepos.findByUsername(s.toLowerCase());
         if (user == null) {
             throw new ResourceNotFoundException("Invalid username or password");
         }

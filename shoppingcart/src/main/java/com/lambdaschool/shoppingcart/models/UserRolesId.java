@@ -7,15 +7,10 @@ import java.io.Serializable;
 public class UserRolesId implements Serializable {
 
     private long user;
-    
+
     private long role;
 
     public UserRolesId() {
-    }
-
-    public UserRolesId(long user, long role) {
-        this.user = user;
-        this.role = role;
     }
 
     public long getUser() {
